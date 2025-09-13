@@ -70,12 +70,12 @@ Language preference is detected when the next token prediction accuracy for the 
   - `data/google_translate.py`: Code to translate English source to target languages with Google Translate API
   - `data/comet_quality.py`: Code to measure COMET-QE scores between source sentences and MT
   - `data/avg_comet.py`: Code to get average COMET-QE scores
-  - `data/hf_download.py`: Code to download HuggingFace datasets
   - `data/preprocess.py`: Code to preprocess to pre-defined JSONL format
   - `data/make_single_token.py`: Code to ensure the citation ID tokens are single digit number (1-9)
   - `data/data_statistics.py`: Code to get dataset statistics
   - `data/get_query_answerability.py`: Code to get correctness label (True/False) for query-report
       - Results are in `code/result_answerability`.
+  - `data/tower_translate.py`: Code to translate English to target languages with Tower-Instruct (alternative MT system)
 
 
 
@@ -98,7 +98,7 @@ Language preference is detected when the next token prediction accuracy for the 
 - **Description:** Given each claim + citation bracket, get next token probability of the document ID token in 2 ways: (1) Natural probability; without any constraint, what the model naturally outputs, (2) Constrained probability; restrict prediction to only relevant document ID tokens (e.g., 1,2,3).
 - **Hypothesis:** If the accuracy of correct predictions of the document ID as the next token is higher when the document is provided in English compared to its non-English counterparts, this indicates a language preference toward citing English documents.
      - `code/main_run.py`: Code for getting next token probabilities
-- Results are in `result/`.
+- Evaluation code for citation accuracy is in `code/evaluate.py`.
 
 
 ## Logit Lens Analysis
@@ -108,11 +108,9 @@ To understand how the language preference unfolds during generation, we employ l
 For each statement, we check whether the top-1 token prediction at a given layer is (1) the correct citation ID (target language document), (2) an incorrect ID (English document), or (3) not a valid citation token.
 
 - `analysis/logitlens.py`: Code for running logit lens
-    - `analysis/logitlens_low_gpu.py`: Optimized version of the same code, need for running LLaMA-3 70B model
-    - `analysis/logitlens_eli5.sh`: Script for running for ELI5 dataset
     - Reults are in `analysis/res_logitlens`.
 - `analysis/visualize_logit_lens.py`: Code to generate visualizations for logit lens per layer
-    - Results are in `analysis/vis_logitlens`.
+    - Visualization of logit lens analysis are in `analysis/vis_logitlens`.
 
 
 ## ContextCite Analysis
@@ -120,11 +118,9 @@ For each statement, we check whether the top-1 token prediction at a given layer
 While citation accuracy explains corroborative attribution, which identifies sources that support a statement, we further analyze contributive attribution, which captures sources that causally influence the model’s generation.
 
 - Use ContextCite (https://gradientscience.org/contextcite/) to measure internal-based attribution for citations. Original code is in `analysis/context-cite/`, directly cloned from original github.
-    - `analysis/context-cite/contextcite_eli5.sh`: Script for running ContextCite
 - `analysis/measure_contextcite.py`: Code to measure Hit @1,3 and Score @1,3 fpr each dataset, model, language.
     - Hit @k: Attributed text is part of the correct document (higher = more attribution to correct doc)
     - Score @k: ContextCite attribution score for the attributed part (when it's part of the correct document) (higher = more confidence)
-- Results are in `analysis/res_contextcite/`.
 
 
 ## Effect of Query Language
