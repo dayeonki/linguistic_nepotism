@@ -78,7 +78,6 @@ Language preference is detected when the next token prediction accuracy for the 
       - Results are in `code/result_answerability`.
 
 
-For each process outlined below, all relevant scripts are in `code/scripts/`.
 
 ## (1) Generate Reference Reports
 - **Description:** Given user query + relevant K docs, generate "reference" evidence-supported reports using a strong model
