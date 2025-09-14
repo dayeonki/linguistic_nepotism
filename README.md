@@ -5,7 +5,7 @@ Authors: Dayeon Ki, Marine Carpuat, Paul McNamee, Daniel Khashabi, Eugene Yang, 
 This repository contains the code and dataset for our paper **Linguistic Nepotism: Trading-off Quality for Language Preference in Multilingual RAG**.
 
 <div align="center">
-<img src="https://github.com/user-attachments/assets/b3415a65-ccac-4468-a291-07602cb95509" style="width: 15px;" alt="code"> <b><a href=https://github.com/dayeonki/linguistic_nepotism>Code</a></b> | <img src="https://github.com/user-attachments/assets/fc2ca3c2-3e78-4ca4-a208-448c0a6c7068" style="width: 15px;" alt="paper"> <b><a href=>Paper</a></b>
+<img src="https://github.com/user-attachments/assets/b3415a65-ccac-4468-a291-07602cb95509" style="width: 15px;" alt="code"> <b><a href=https://github.com/dayeonki/linguistic_nepotism>Code</a></b> | <img src="https://github.com/user-attachments/assets/fc2ca3c2-3e78-4ca4-a208-448c0a6c7068" style="width: 15px;" alt="paper"> <b><a href=https://drive.google.com/file/d/1W_NOJW6CWttrUEhd0J8rqroQ4rTmn1fb/view?usp=sharing>Paper</a></b>
 </div>
 
 
